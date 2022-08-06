@@ -1,5 +1,6 @@
 package com.example.chiquita.utils;
 
+
 import com.example.chiquita.entities.UserEntity;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -15,10 +16,10 @@ import java.util.Map;
 import java.util.function.Function;
 
 @Component
-public class JwtUtils implements Serializable {
+public class JwtRefreshUtils implements Serializable {
     public static final long JWT_TOKEN_VALIDITY = 1 * 60 * 60;
 
-    @Value("${jwt.secret}")
+    @Value("${jwt.refreshSecret}")
     private String secretKey;
 
     public String getUsernameFromToken(String token) {
