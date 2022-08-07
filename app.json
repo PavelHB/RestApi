@@ -1,0 +1,8 @@
+{
+  "name": "appapi1",
+  "buildpacks": [
+    {
+      "url": "heroku/java"
+    }
+  ]
+}
