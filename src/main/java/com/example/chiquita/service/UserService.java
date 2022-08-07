@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.UUID;
 
 
 @Service
@@ -46,5 +47,8 @@ public class UserService {
         var roleEntity = roleRepository.findByRole("USER_BASIC");
         userEntity.setRoles(new HashSet<RoleEntity>(Collections.singletonList(roleEntity)));
         return userRepository.save(userEntity);
+    }
+    public UserEntity getById(UUID id) throws Exception {
+        return userRepository.findById(id).orElseThrow(()->new Exception(String.format("Cannot find [%s] user", id)));
     }
 }

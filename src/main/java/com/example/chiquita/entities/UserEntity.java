@@ -36,6 +36,16 @@ public class UserEntity {
     @JoinTable(name = "user_role",  joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<RoleEntity> roles;
 
+    @OneToMany(mappedBy = "id", fetch = FetchType.LAZY)
+    private Set<TodoEntity> todos;
+
+    public Set<TodoEntity> getTodos() {
+        return todos;
+    }
+
+    public void setTodos(Set<TodoEntity> todos) {
+        this.todos = todos;
+    }
 
     public UUID getId() {
         return id;
